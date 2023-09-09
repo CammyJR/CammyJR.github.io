@@ -14,7 +14,7 @@ exports.getQuery = (req, res) => {
 
         //fetching info with the name and track sent in the query
         const output = database.find((info) => info.slack_name == name && info.track == track_name)
-        output.utc_time = new Date().toISOString(),
+        output.utc_time = new Date().toISOString().substring(0,19) + "Z",
             output.current_day = new Date().toLocaleDateString("en-US", {
                 weekday: "long"
             })
